@@ -9,7 +9,7 @@
 // The authenticity of host 'github.pie.apple.com (17.121.132.15)' can't be established.
 // ECDSA key fingerprint is SHA256:7ZIubzLSVVGGQ2BgrPF+QnkDYjuJ/xs754ZS8oAZ7QY.
 // This key is not known by any other names.
-// Are you sure you want to continue connecting (yes/no/[fingerprint])? 
+// Are you sure you want to continue connecting (yes/no/[fingerprint])?
 class GitGraphView {
 	private gitRepos: GG.GitRepoSet;
 	private gitBranches: ReadonlyArray<string> = [];
@@ -915,12 +915,14 @@ class GitGraphView {
 			let subject = commit.message;
 			let body = '';
 
-			let splitMessage = commit.message.split('\n\n');
+			if (this.config.showCommitBodyInline) {
+				let splitMessage = commit.message.split('\n\n');
 
-			if (splitMessage.length > 1) {
-				subject = splitMessage[0];
-				splitMessage.shift();
-				body = splitMessage.join('\n\n');
+				if (splitMessage.length > 1) {
+					subject = splitMessage[0];
+					splitMessage.shift();
+					body = splitMessage.join('\n\n');
+				}
 			}
 
 			let message = '<span class="text">' + textFormatter.format(subject) + '</span>';
