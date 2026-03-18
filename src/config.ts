@@ -472,10 +472,10 @@ class Config {
 	}
 
 	/**
-	 * Get the value of the `git-graph.repository.showCommitBodyInline` Extension Setting.
+	 * Get the value of the `git-graph.repository.commits.showBodyInline` Extension Setting.
 	 */
 	get showCommitBodyInline() {
-		return !!this.config.get('repository.showCommitBodyInline', true);
+		return !!this.config.get('repository.commits.showBodyInline', true);
 	}
 
 	/**
