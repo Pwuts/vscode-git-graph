@@ -1089,7 +1089,7 @@
 				},
 				"git-graph.repository.showCommitBodyInline": {
 					"type": "boolean",
-					"default": false,
+					"default": true,
 					"description": "Show the commit body alongside the subject in the Git Graph table. When disabled, only the commit subject (first line) is shown."
 				},
 				"git-graph.repository.showStashes": {
